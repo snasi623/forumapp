@@ -1,0 +1,34 @@
+body {
+  background-color: aqua;
+  padding: 10px;
+}
+.card {
+  width: 90%;
+  display: flex;
+  margin: auto;
+}
+h1 {
+  text-align: center;
+}
+.card-header {
+  text-align: center;
+  border-bottom: 0;
+}
+p {
+  text-align: center;
+}
+.card-body {
+  border-top: 1px solid rgba(0,0,0,.125);;
+}
+label {
+  margin: 5px;
+}
+.thread {
+  margin-bottom: 0;
+}
+.card-body > form > input {
+  margin-left: 25px;
+}
+.account > div.card-body {
+  text-align: center;
+}
