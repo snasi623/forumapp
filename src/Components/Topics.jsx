@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Link } from "react-router-dom";
 
 class Topics extends Component {
     constructor(props) {
@@ -37,6 +38,7 @@ class Topics extends Component {
                     <div className="card-header">Topics</div>
                     {topics}
                 </div>
+                <Link to="/createtopics">Create Topics</Link>
             </div>
         )
     }

@@ -1,4 +1,6 @@
 import './App.css';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Navigation from './Components/Navigation';
 import Login from './Components/Login';
 import CreateAccount from './Components/CreateAccount';
 import Boards from './Components/Boards';
@@ -7,17 +9,22 @@ import Posts from './Components/Posts';
 import CreateBoards from './Components/CreateBoards';
 import CreateTopics from './Components/CreateTopics';
 
+
 function App() {
   return (
-    <div className="App">
-      <Login />
-      <CreateAccount />
-      <Boards />
-      <CreateBoards />
-      <Topics />
-      <CreateTopics />
-      <Posts />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Navigation />}>
+          <Route index element={<Boards />} />
+          <Route path="login" element={<Login />} />
+          <Route path="topics" element={<Topics />} />
+          <Route path="posts" element={<Posts />} />
+          <Route path="createaccount" element={<CreateAccount />} />
+          <Route path="createboards" element={<CreateBoards />} />
+          <Route path="createtopics" element={<CreateTopics />} />
+        </Route>
+      </Routes>
+    </Router>
   );
 }
 
