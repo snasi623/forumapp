@@ -18,7 +18,6 @@ class Boards extends Component {
         .then(res => {
             const boards = res.data;
             this.setState({ boards });
-            console.log(boards[0].boardname);
         })
     }
 
