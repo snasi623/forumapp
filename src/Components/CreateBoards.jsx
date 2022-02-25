@@ -2,32 +2,26 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 class CreateBoards extends Component {
-
+    
     constructor(props) {
         super(props);
+        this.inputRef = React.createRef();
+        this.onSubmit = this.onSubmit.bind(this);
     }
 
-    state = {
-        boards: []
-    }
-
-    componentDidMount() {
-        axios.get(`http://localhost:3001/board`)
+    onSubmit(e) {
+        e.preventDefault();
+        const formData = new FormData(this.inputRef.current)
+        let entryData = {}
+        for (var [key, value] of formData.entries()) { 
+            entryData[key] = value
+        }
+        axios.post(`http://localhost:3001/board`, entryData)
         .then(res => {
-            const boards = res.data;
-            this.setState({ boards });
+            const board = res.data;
+            console.log("Hello World")
+            console.log(JSON.stringify(board))
         })
-    }
-
-    onSubmit() {
-        //pass value in inputs to API
-        //redirect to the Home page
-        event.preventDefault();
-        axios.post(`http://localhost:3001/board`)
-        .then(res => {
-            
-        })
-
     }
 
     render() {
@@ -35,14 +29,14 @@ class CreateBoards extends Component {
             <div className="card bg-light mb-3 account">
                 <div className="card-header">Create Board</div>
                 <div className="card-body">
-                    <form action="submit">
+                    <form ref={this.inputRef} action="submit" onSubmit={this.onSubmit}>
                         <div className="row">
                             <div className="col-sm-4"><label htmlFor="boardName">Board Name: </label></div>
-                            <div className="col-sm-8"><input className="input-group" type="boardname" placeholder="Board Name" id="boardName" required="required" /></div>
+                            <div className="col-sm-8"><input name="boardName" className="input-group" type="text" placeholder="Board Name" required="required" /></div>
                         </div>
                         <div className="row">
                             <div className="col-sm-4"><label htmlFor="description">Description: </label></div>
-                            <div className="col-sm-8"><textarea className="input-group" type="text" placeholder="Description" id="description" required="required"/></div>
+                            <div className="col-sm-8"><textarea name="description" className="input-group" type="text" placeholder="Description" required="required"/></div>
                         </div>
                         <button type="submit" className="btn btn-primary">Create Board</button>
                     </form>

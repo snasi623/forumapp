@@ -26,7 +26,7 @@ class Topics extends Component {
         const topics = [];
         this.state.topics.forEach(topic => 
             topics.push(
-                <div className="card-body" key={topic.id}>{topic.threadname}</div>
+                <div className="card-body" key={topic.id}>{topic.threadName}</div>
             )
         );
 

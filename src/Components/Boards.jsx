@@ -26,7 +26,7 @@ class Boards extends Component {
         this.state.boards.forEach(board => 
             boards.push(
                 <div className="card bg-light mb-3" key={board.id}>
-                    <div className="card-header">{board.boardname}</div>
+                    <div className="card-header">{board.boardName}</div>
                     <div className="card-body">{board.description}</div>
                 </div>
             )
