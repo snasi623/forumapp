@@ -1,0 +1,21 @@
+Milestone 1
+
+Refresh or redirect when creating board, topics, and post
+Update request for boards
+Delete request for topics, boards, and posts
+
+Milestone 2
+
+User registration
+User login
+Set user ID on posts and topics
+
+Milestone 3
+
+CSS
+User Stories
+Wireframes
+Readme
+
+Milestone 4
+Deploy

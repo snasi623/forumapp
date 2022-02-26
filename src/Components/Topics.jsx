@@ -25,7 +25,7 @@ class Topics extends Component {
                 console.log(board);
             })
         
-        axios.get(`http://localhost:3001/topic`)
+        axios.get(`http://localhost:3001/topic/byBoardId/${boardId}`)
             .then(res => {
                 const topics = res.data;
                 this.setState({ topics: topics });
