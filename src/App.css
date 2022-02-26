@@ -32,3 +32,9 @@ label {
 .account > div.card-body {
   text-align: center;
 }
+nav li {
+  padding: 10px;
+}
+nav a {
+  color: white;
+}

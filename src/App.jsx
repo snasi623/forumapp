@@ -17,11 +17,11 @@ function App() {
         <Route path="/" element={<Navigation />}>
           <Route index element={<Boards />} />
           <Route path="login" element={<Login />} />
-          <Route path="topics" element={<Topics />} />
-          <Route path="posts" element={<Posts />} />
+          <Route path="topics/:boardId" element={<Topics />} />
+          <Route path="posts/:topicId" element={<Posts />} />
           <Route path="createaccount" element={<CreateAccount />} />
           <Route path="createboards" element={<CreateBoards />} />
-          <Route path="createtopics" element={<CreateTopics />} />
+          <Route path="createtopics/:boardId" element={<CreateTopics />} />
         </Route>
       </Routes>
     </Router>

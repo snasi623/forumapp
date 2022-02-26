@@ -5,10 +5,6 @@ import axios from 'axios';
 import { Link } from "react-router-dom";
 
 class Boards extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     state = {
         boards: []
     }
@@ -26,7 +22,7 @@ class Boards extends Component {
         this.state.boards.forEach(board => 
             boards.push(
                 <div className="card bg-light mb-3" key={board.id}>
-                    <div className="card-header">{board.boardName}</div>
+                    <div className="card-header"><Link to={`/topics/${board.id}`}>{board.boardName}</Link></div>
                     <div className="card-body">{board.description}</div>
                 </div>
             )

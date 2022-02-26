@@ -29,7 +29,7 @@ class CreateBoards extends Component {
             <div className="card bg-light mb-3 account">
                 <div className="card-header">Create Board</div>
                 <div className="card-body">
-                    <form ref={this.inputRef} action="submit" onSubmit={this.onSubmit}>
+                    <form ref={this.inputRef} onSubmit={this.onSubmit}>
                         <div className="row">
                             <div className="col-sm-4"><label htmlFor="boardName">Board Name: </label></div>
                             <div className="col-sm-8"><input name="boardName" className="input-group" type="text" placeholder="Board Name" required="required" /></div>

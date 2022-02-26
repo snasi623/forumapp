@@ -19,6 +19,21 @@ class Posts extends Component {
             console.log(posts[0].text);
         })
     }
+
+    onSubmit(e) {
+        e.preventDefault();
+        const formData = new FormData(this.inputRef.current)
+        let entryData = {}
+        for (var [key, value] of formData.entries()) { 
+            entryData[key] = value
+        }
+        axios.post(`http://localhost:3001/post`, entryData)
+        .then(res => {
+            const post = res.data;
+            console.log("Hello World")
+            console.log(JSON.stringify(post))
+        })
+    }
     
     render() {
         const posts = [];
