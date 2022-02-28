@@ -1,14 +1,13 @@
 Milestone 1
 
 Refresh or redirect when creating board, topics, and post
-Update request for boards
+Update request for user
 Delete request for topics, boards, and posts
 
 Milestone 2
 
-User registration
-User login
 Set user ID on posts and topics
+Session
 
 Milestone 3
 
