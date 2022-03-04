@@ -1,8 +1,7 @@
-//Where you list the names of the subreddits
-
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from "react-router-dom";
+import baseUrl from './ApiPath';
 
 class Boards extends Component {
     state = {
@@ -10,11 +9,11 @@ class Boards extends Component {
     }
 
     componentDidMount() {
-        axios.get(`http://localhost:3001/board`)
-        .then(res => {
-            const boards = res.data;
-            this.setState({ boards });
-        })
+        axios.get(`${baseUrl}/board`)
+            .then(res => {
+                const boards = res.data;
+                this.setState({ boards });
+            })
     }
 
     render() {
@@ -32,7 +31,7 @@ class Boards extends Component {
             <div>
                 <h1>Boards</h1>
                 {boards}
-                <Link to="/createboards">Create Boards</Link>
+                <p>Not finding what you are looking for? <Link to="/createboards">Create a Board here!</Link></p>
             </div>
         )
     }

@@ -1,25 +1,30 @@
-import { useState } from 'react';
+import axios from 'axios';
+import baseUrl from './ApiPath';
 
-function useToken() {
-    const getToken = () => {
-        const tokenString = sessionStorage.getItem('token');
-        const userToken = JSON.parse(tokenString);
-        return userToken?.token
+function sessionProvider() {
+    const getSessionId = () => {
+        return sessionStorage.getItem('sessionId');
     };
 
-    const [token, setToken] = useState(getToken());
-
-    const saveToken = userToken => {
-        sessionStorage.setItem('token', JSON.stringify(userToken));
-        setToken(userToken.token);
+    const setSessionId = sessionId => {
+        sessionStorage.setItem('sessionId', sessionId);
     };
+
+    const getMe = (sessionId) => {
+        return axios.get(`${baseUrl}/me`, {
+            headers: {
+                'X-Forum-Session-Id': sessionId
+            }
+        }).then(res => {
+            return res.data
+        })
+    }
 
     return {
-        setToken: saveToken,
-        token
+        getSessionId,
+        setSessionId, 
+        getMe
     }
 }
 
-export default useToken;
-
-//https://www.digitalocean.com/community/tutorials/how-to-add-login-authentication-to-react-applications#step-3-storing-a-user-token-with-sessionstorage-and-localstorage
+export default sessionProvider;

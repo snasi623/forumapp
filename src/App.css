@@ -1,6 +1,7 @@
 body {
-  background-color: aqua;
+  background-image: repeating-linear-gradient(#2A467A, #4372C7 65%, #2A467A 100%);
   padding: 10px;
+  color: white;
 }
 .card {
   width: 90%;
@@ -9,16 +10,23 @@ body {
 }
 h1 {
   text-align: center;
+  margin: 20px;
 }
 .card-header {
   text-align: center;
-  border-bottom: 0;
+  background-color: #558FFA;
 }
 p {
   text-align: center;
 }
 .card-body {
   border-top: 1px solid rgba(0,0,0,.125);;
+  background-color: #A0C0FB;
+  color: #4E5E7A;
+  border-bottom: 0;
+}
+.card-body a {
+  color: #4E5E7A;
 }
 label {
   margin: 5px;
@@ -36,6 +44,12 @@ nav li {
   padding: 10px;
   color: white;
 }
-nav a {
+a {
   color: white;
+}
+a:hover {
+  color: #fab255;
+}
+button {
+  margin: 5px;
 }

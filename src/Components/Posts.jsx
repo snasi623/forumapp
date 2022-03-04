@@ -1,7 +1,7 @@
-//Responses + Original message of the thread
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import baseUrl from './ApiPath';
 
 class Posts extends Component {
     constructor(props) {
@@ -19,14 +19,14 @@ class Posts extends Component {
         let { topicId } = this.props.match.params;
         console.log(topicId);
 
-        axios.get(`http://localhost:3001/topic/${topicId}`)
+        axios.get(`${baseUrl}/topic/${topicId}`)
             .then(res => {
                 const topic = res.data;
                 this.setState({ topic });
                 console.log(topic);
             })
 
-        axios.get(`http://localhost:3001/post/byTopicId/${topicId}`)
+        axios.get(`${baseUrl}/post/byTopicId/${topicId}`)
             .then(res => {
                 const posts = res.data;
                 this.setState({ posts });
@@ -36,7 +36,6 @@ class Posts extends Component {
 
     onSubmit(e) {
         e.preventDefault();
-
         const formData = new FormData(this.inputRef.current)
         let entryData = {}
         for (var [key, value] of formData.entries()) { 
@@ -44,12 +43,14 @@ class Posts extends Component {
         }
         let { topicId } = this.props.match.params;
         entryData.topicId = topicId
-        axios.post(`http://localhost:3001/post`, entryData)
-            .then(res => {
-                const post = res.data;
-                console.log("Hello World")
-                console.log(JSON.stringify(post))
-            })
+        axios.post(`${baseUrl}/post`, entryData, {
+            headers: {
+                'X-Forum-Session-Id': this.props.getSessionId()
+            }
+        }).then(res => {
+            const post = res.data;
+            console.log(JSON.stringify(post))
+        })
     }
     
     render() {

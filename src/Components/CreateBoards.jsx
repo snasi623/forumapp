@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import baseUrl from './ApiPath';
 
 class CreateBoards extends Component {
     
@@ -16,10 +17,12 @@ class CreateBoards extends Component {
         for (var [key, value] of formData.entries()) { 
             entryData[key] = value
         }
-        axios.post(`http://localhost:3001/board`, entryData)
-        .then(res => {
+        axios.post(`${baseUrl}/board`, entryData, {
+            headers: {
+                'X-Forum-Session-Id': this.props.getSessionId()
+            }
+        }).then(res => {
             const board = res.data;
-            console.log("Hello World")
             console.log(JSON.stringify(board))
         })
     }

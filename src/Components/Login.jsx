@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import axios from 'axios';
+import baseUrl from './ApiPath';
 
 class Login extends Component {
     
@@ -11,22 +12,26 @@ class Login extends Component {
     }
 
     onSubmit(e) {
+        const setSessionId = this.props.setSessionId
         e.preventDefault();
         const formData = new FormData(this.inputRef.current)
         let entryData = {}
         for (var [key, value] of formData.entries()) { 
             entryData[key] = value
         }
-        axios.post(`http://localhost:3001/user/login`, entryData)
+        axios.post(`${baseUrl}/user/login`, entryData)
             .then(res => {
-                const users = res.data;
-                console.log(JSON.stringify(users))
+                const loginResponse = res.data;
+                console.log(JSON.stringify(loginResponse))
+                setSessionId(loginResponse.sessionId)
+                this.props.getMe(loginResponse.sessionId).then(me => console.log(me))
             })
     }
     
     render() {
         return (
             <div>
+                <h1>Forum App</h1>
                 <div className="card bg-light mb-3 account">
                     <div className="card-header">Log In</div>
                     <div className="card-body">
@@ -40,9 +45,8 @@ class Login extends Component {
                                 <div className="col-sm-8"><input name="password" className="input-group" type="password" placeholder="Password" id="password" /></div>
                             </div>
                             <button type="submit" className="btn btn-primary">Log In</button>
-                            <br />
-                            <p>New to the site?<Link to="/createaccount">Create an account here.</Link></p>
                         </form>
+                        <p>New to the site? <Link to="/createaccount">Create an account here.</Link></p>
                     </div>
                 </div>
             </div>

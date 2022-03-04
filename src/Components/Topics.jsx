@@ -1,13 +1,9 @@
-//When you list all the threads. 
-
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link, useParams } from "react-router-dom";
+import baseUrl from './ApiPath';
 
 class Topics extends Component {
-    constructor(props) {
-        super(props);
-    }
 
     state = {
         board: {},
@@ -18,14 +14,14 @@ class Topics extends Component {
         let { boardId } = this.props.match.params;
         console.log(boardId);
 
-        axios.get(`http://localhost:3001/board/${boardId}`)
+        axios.get(`${baseUrl}/board/${boardId}`)
             .then(res => {
                 const board = res.data;
                 this.setState({ board });
                 console.log(board);
             })
         
-        axios.get(`http://localhost:3001/topic/byBoardId/${boardId}`)
+        axios.get(`${baseUrl}/topic/byBoardId/${boardId}`)
             .then(res => {
                 const topics = res.data;
                 this.setState({ topics: topics });
@@ -49,7 +45,7 @@ class Topics extends Component {
                     <div className="card-header">Topics</div>
                     {topics}
                 </div>
-                <Link to={`/createtopics/${this.state.board.id}`}>Create Topics</Link>
+                <p>Have a topic that you want to post about? <Link to={`/createtopics/${this.state.board.id}`}>Create a thread here!</Link></p>
             </div>
         )
     }

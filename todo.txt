@@ -7,7 +7,8 @@ Delete request for topics, boards, and posts
 Milestone 2
 
 Set user ID on posts and topics
-Session
+Log Out
+Username thing navbar
 
 Milestone 3
 

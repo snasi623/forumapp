@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { useParams } from "react-router-dom";
-
+import baseUrl from './ApiPath';
 
 class CreateTopics extends Component {
     constructor(props) {
@@ -13,21 +13,21 @@ class CreateTopics extends Component {
     onSubmit(e) {
         e.preventDefault();
         let { boardId } = this.props.match.params;
-        console.log(boardId);
         const formData = new FormData(this.inputRef.current)
         let entryData = {}
         for (var [key, value] of formData.entries()) { 
             entryData[key] = value
         }
         entryData.boardId = boardId;
-        axios.post(`http://localhost:3001/topic`, entryData)
-        .then(res => {
+        axios.post(`${baseUrl}/topic`, entryData, {
+            headers: {
+                'X-Forum-Session-Id': this.props.getToken()
+            }
+        }).then(res => {
             const topic = res.data;
-            console.log("Hello World")
             console.log(JSON.stringify(topic))
         })
     }
-
     
     render() {
         return (

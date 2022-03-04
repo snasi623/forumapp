@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-// import { Navigate } from "react-router-dom";
+import baseUrl from './ApiPath';
 
 class CreateAccount extends Component {
     
@@ -17,7 +17,7 @@ class CreateAccount extends Component {
         for (var [key, value] of formData.entries()) { 
             entryData[key] = value
         }
-        axios.post(`http://localhost:3001/user`, entryData)
+        axios.post(`${baseUrl}/user`, entryData)
         .then(res => {
             const users = res.data;
             console.log(JSON.stringify(users))
