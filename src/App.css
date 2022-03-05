@@ -8,6 +8,9 @@ body {
   display: flex;
   margin: auto;
 }
+.card .row {
+  width: 90%;
+}
 h1 {
   text-align: center;
   margin: 20px;

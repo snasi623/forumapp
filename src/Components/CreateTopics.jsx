@@ -31,20 +31,23 @@ class CreateTopics extends Component {
     
     render() {
         return (
-            <div className="card bg-light mb-3 account">
-                <div className="card-header">Create Topic</div>
-                <div className="card-body">
-                    <form ref={this.inputRef} onSubmit={this.onSubmit}>
-                        <div className="row">
-                            <div className="col-sm-4"><label htmlFor="topicname">Topic Name: </label></div>
-                            <div className="col-sm-8"><input name="threadName" className="input-group" type="text" placeholder="Topic Name" id="topicname" /></div>
-                        </div>
-                        <div className="row">
-                            <div className="col-sm-4"><label htmlFor="text">Text: </label></div>
-                            <div className="col-sm-8"><textarea name="firstPost" className="input-group" type="text" placeholder="Text" id="text" /></div>
-                        </div>
-                        <button type="submit" className="btn btn-primary">Create Thread</button>
-                    </form>
+            <div>
+                <h1>Create a Thread</h1>
+                <div className="card bg-light mb-3 account">
+                    <div className="card-header">New Topic</div>
+                    <div className="card-body">
+                        <form ref={this.inputRef} onSubmit={this.onSubmit}>
+                            <div className="row">
+                                <div className="col-sm-4"><label htmlFor="topicname">Topic Name: </label></div>
+                                <div className="col-sm-8"><input name="threadName" className="input-group" type="text" placeholder="Topic Name" id="topicname" required="required" /></div>
+                            </div>
+                            <div className="row">
+                                <div className="col-sm-4"><label htmlFor="text">Text: </label></div>
+                                <div className="col-sm-8"><textarea name="firstPost" className="input-group" type="text" placeholder="Text" id="text" required="required" /></div>
+                            </div>
+                            <button type="submit" className="btn btn-primary">Create Thread</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         )

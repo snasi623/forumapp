@@ -8,6 +8,7 @@ class Posts extends Component {
         super(props);
         this.inputRef = React.createRef();
         this.onSubmit = this.onSubmit.bind(this);
+        this.deletePost = this.deletePost.bind(this)
     }
 
     state = {
@@ -32,6 +33,11 @@ class Posts extends Component {
                 this.setState({ posts });
                 console.log(posts[0]?.text);
             })
+    }
+
+    deletePost() {
+        axios.delete(`${baseUrl}/post`)
+            .then(() => this.setState({ status: 'Delete successful' }));
     }
 
     onSubmit(e) {
@@ -59,7 +65,12 @@ class Posts extends Component {
             posts.push(
                 <div className="card bg-light thread">
                     <div className="card-header" key={post.id}><strong>{post.userId} </strong>{post.postDate}</div>
-                    <div className="card-body">{post.text}</div>
+                    <div className="card-body">
+                        <div className="row">
+                            <div className="col-sm-11">{post.text}</div>
+                            <div className="col-sm-1"><button type="submit" className="btn btn-danger">Delete</button></div>
+                        </div>
+                    </div>
                 </div>
             )
         );

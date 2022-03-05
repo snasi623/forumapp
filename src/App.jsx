@@ -9,6 +9,8 @@ import Posts from './Components/Posts';
 import CreateBoards from './Components/CreateBoards';
 import CreateTopics from './Components/CreateTopics';
 import sessionProvider from './Components/SessionProvider';
+import UpdateAccount from './Components/UpdateAccount';
+import Logout from './Components/Logout';
 
 
 function App() {
@@ -25,6 +27,8 @@ function App() {
           <Route path="createaccount" element={<CreateAccount />} />
           <Route path="createboards" element={<CreateBoards getSessionId={getSessionId} />} />
           <Route path="createtopics/:boardId" element={<CreateTopics getSessionId={getSessionId} />} />
+          <Route path="logout" element={<Logout setSessionId={setSessionId} getMe={getMe} />} />
+          <Route path="updateaccount" element={<UpdateAccount getMe={getMe}/>} />
         </Route>
       </Routes>
     </Router>

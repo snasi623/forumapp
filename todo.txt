@@ -2,7 +2,7 @@ Milestone 1
 
 Refresh or redirect when creating board, topics, and post
 Update request for user
-Delete request for topics, boards, and posts
+Delete request for posts
 
 Milestone 2
 

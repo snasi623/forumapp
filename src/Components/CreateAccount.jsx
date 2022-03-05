@@ -38,20 +38,20 @@ class CreateAccount extends Component {
                         <form ref={this.inputRef} onSubmit={this.onSubmit}>
                             <div className="row">
                                 <div className="col-sm-4"><label htmlFor="email">Email: </label></div>
-                                <div className="col-sm-8"><input name="email" className="input-group" type="email" placeholder="Email" id="email" /></div>
+                                <div className="col-sm-8"><input name="email" className="input-group" type="email" placeholder="Email" id="email" required="required" /></div>
                             </div>
                             <div className="row">
                                 <div className="col-sm-4"><label htmlFor="username">Username: </label></div>
-                                <div className="col-sm-8"><input name="username" className="input-group" type="text" placeholder="Username" id="username" /></div>
+                                <div className="col-sm-8"><input name="username" className="input-group" type="text" placeholder="Username" id="username" required="required" /></div>
                             </div>
                             <div className="row">
                                 <div className="col-sm-4"><label htmlFor="password">Password: </label></div>
-                                <div className="col-sm-8"><input name="password" className="input-group" type="password" placeholder="Password" id="password" /></div>
+                                <div className="col-sm-8"><input name="password" className="input-group" type="password" placeholder="Password" id="password" required="required" /></div>
                             </div>
                             <div className="row">
                                 <div className="col-sm-4"><label htmlFor="gender">Gender: </label></div>
                                 <div className="col-sm-8">
-                                    <select name="gender" className="input-group" type="dropdown" placeholder="Gender" id="gender">
+                                    <select name="gender" className="input-group" type="dropdown" placeholder="Gender" id="gender" required="required" >
                                         <option value="male">Male</option>
                                         <option value="female">Female</option>
                                         <option value="unspecified">Unspecified</option>
@@ -60,7 +60,7 @@ class CreateAccount extends Component {
                             </div>
                             <div className="row">
                                 <div className="col-sm-4"><label htmlFor="birthday">Birthday: </label></div>
-                                <div className="col-sm-8"><input name="birthday" className="input-group" type="date" placeholder="Birthday" id="birthday" /></div>
+                                <div className="col-sm-8"><input name="birthday" className="input-group" type="date" placeholder="Birthday" id="birthday" required="required" /></div>
                             </div>
                             <button type="submit" className="btn btn-primary">Create Account</button>
                         </form>

@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link } from "react-router-dom";
 import baseUrl from './ApiPath';
 
-class Boards extends Component {
+class Boards extends Component {    
     state = {
         boards: []
     }

@@ -38,11 +38,11 @@ class Login extends Component {
                         <form ref={this.inputRef} onSubmit={this.onSubmit}>
                             <div className="row">
                                 <div className="col-sm-4"><label htmlFor="email">Email: </label></div>
-                                <div className="col-sm-8"><input name="email" className="input-group" type="email" placeholder="Email" id="email" /></div>
+                                <div className="col-sm-8"><input name="email" className="input-group" type="email" placeholder="Email" id="email" required="required" /></div>
                             </div>
                             <div className="row">
                                 <div className="col-sm-4"><label htmlFor="password">Password: </label></div>
-                                <div className="col-sm-8"><input name="password" className="input-group" type="password" placeholder="Password" id="password" /></div>
+                                <div className="col-sm-8"><input name="password" className="input-group" type="password" placeholder="Password" id="password" required="required" /></div>
                             </div>
                             <button type="submit" className="btn btn-primary">Log In</button>
                         </form>
