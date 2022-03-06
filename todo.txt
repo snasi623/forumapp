@@ -1,21 +1,13 @@
 Milestone 1
 
-Refresh or redirect when creating board, topics, and post
 Update request for user
-Delete request for posts
-
-Milestone 2
-
-Set user ID on posts and topics
-Log Out
-Username thing navbar
 
 Milestone 3
 
-CSS
 User Stories
-Wireframes
-Readme
+Minor cosmetics: 
+    move create topic and board button
 
 Milestone 4
+
 Deploy

@@ -1,5 +1,4 @@
-import axios from 'axios';
-import baseUrl from './ApiPath';
+import { doHttpGet } from '../util.js'
 
 function sessionProvider() {
     const getSessionId = () => {
@@ -10,19 +9,18 @@ function sessionProvider() {
         sessionStorage.setItem('sessionId', sessionId);
     };
 
+    const clearSessionId = sessionId => {
+        sessionStorage.removeItem('sessionId');
+    };
+
     const getMe = (sessionId) => {
-        return axios.get(`${baseUrl}/me`, {
-            headers: {
-                'X-Forum-Session-Id': sessionId
-            }
-        }).then(res => {
-            return res.data
-        })
+        return doHttpGet(`/user/me`, sessionId)
     }
 
     return {
         getSessionId,
         setSessionId, 
+        clearSessionId,
         getMe
     }
 }

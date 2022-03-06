@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import { Link } from "react-router-dom";
-import baseUrl from './ApiPath';
+import { doHttpGet } from '../util.js'
 
 class Boards extends Component {    
     state = {
@@ -9,11 +8,8 @@ class Boards extends Component {
     }
 
     componentDidMount() {
-        axios.get(`${baseUrl}/board`)
-            .then(res => {
-                const boards = res.data;
-                this.setState({ boards });
-            })
+        doHttpGet(`/board`)
+            .then(boards => this.setState({ boards }));
     }
 
     render() {
@@ -30,8 +26,8 @@ class Boards extends Component {
         return (
             <div>
                 <h1>Boards</h1>
-                {boards}
                 <p>Not finding what you are looking for? <Link to="/createboards">Create a Board here!</Link></p>
+                {boards}
             </div>
         )
     }

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-import baseUrl from './ApiPath';
+import { doHttpPost, extractFormData } from '../util.js'
 
 class CreateBoards extends Component {
     
@@ -12,19 +11,12 @@ class CreateBoards extends Component {
 
     onSubmit(e) {
         e.preventDefault();
-        const formData = new FormData(this.inputRef.current)
-        let entryData = {}
-        for (var [key, value] of formData.entries()) { 
-            entryData[key] = value
-        }
-        axios.post(`${baseUrl}/board`, entryData, {
-            headers: {
-                'X-Forum-Session-Id': this.props.getSessionId()
-            }
-        }).then(res => {
-            const board = res.data;
-            console.log(JSON.stringify(board))
-        })
+        
+        doHttpPost(`/board`, extractFormData(this.inputRef), this.props.getSessionId())
+            .then(board => {
+                console.log(JSON.stringify(board))
+                window.location.replace('/')
+            })
     }
 
     render() {

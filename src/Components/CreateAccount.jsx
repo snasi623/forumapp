@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-import baseUrl from './ApiPath';
+import { doHttpPost, extractFormData } from '../util.js'
 
 class CreateAccount extends Component {
     
@@ -12,24 +11,12 @@ class CreateAccount extends Component {
 
     onSubmit(e) {
         e.preventDefault();
-        const formData = new FormData(this.inputRef.current)
-        let entryData = {}
-        for (var [key, value] of formData.entries()) { 
-            entryData[key] = value
-        }
-        axios.post(`${baseUrl}/user`, entryData)
-        .then(res => {
-            const users = res.data;
-            console.log(JSON.stringify(users))
-        })
+        
+        doHttpPost(`/user`, extractFormData(this.inputRef))
+            .then(() => window.location.replace('/login'))
     }
     
     render() {
-        // const redirectToLogin = this.props.onSubmit;
-        // if (redirectToLogin) {
-        //     return <Navigate to="/login" />
-        // }
-
         return (
             <div>
                 <div className="card bg-light mb-3 account">

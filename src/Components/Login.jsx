@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
-import axios from 'axios';
-import baseUrl from './ApiPath';
+import { doHttpPost, extractFormData } from '../util.js'
 
 class Login extends Component {
     
@@ -12,19 +11,12 @@ class Login extends Component {
     }
 
     onSubmit(e) {
-        const setSessionId = this.props.setSessionId
         e.preventDefault();
-        const formData = new FormData(this.inputRef.current)
-        let entryData = {}
-        for (var [key, value] of formData.entries()) { 
-            entryData[key] = value
-        }
-        axios.post(`${baseUrl}/user/login`, entryData)
-            .then(res => {
-                const loginResponse = res.data;
-                console.log(JSON.stringify(loginResponse))
-                setSessionId(loginResponse.sessionId)
-                this.props.getMe(loginResponse.sessionId).then(me => console.log(me))
+        
+        doHttpPost(`/user/login`, extractFormData(this.inputRef))
+            .then(loginResponse => {
+                this.props.setSessionId(loginResponse.sessionId)
+                window.location.replace('/')
             })
     }
     

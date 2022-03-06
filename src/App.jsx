@@ -14,7 +14,7 @@ import Logout from './Components/Logout';
 
 
 function App() {
-  const { getSessionId, setSessionId, getMe } = sessionProvider();
+  const { getSessionId, setSessionId, clearSessionId, getMe } = sessionProvider();
 
   return (
     <Router>
@@ -23,11 +23,11 @@ function App() {
           <Route index element={<Boards />} />
           <Route path="login" element={<Login setSessionId={setSessionId} getMe={getMe} />} />
           <Route path="topics/:boardId" element={<Topics />} />
-          <Route path="posts/:topicId" element={<Posts getSessionId={getSessionId} />} />
+          <Route path="posts/:topicId" element={<Posts getSessionId={getSessionId} getMe={getMe} />} />
           <Route path="createaccount" element={<CreateAccount />} />
           <Route path="createboards" element={<CreateBoards getSessionId={getSessionId} />} />
           <Route path="createtopics/:boardId" element={<CreateTopics getSessionId={getSessionId} />} />
-          <Route path="logout" element={<Logout setSessionId={setSessionId} getMe={getMe} />} />
+          <Route path="logout" element={<Logout getSessionId={getSessionId} clearSessionId={clearSessionId} />} />
           <Route path="updateaccount" element={<UpdateAccount getMe={getMe}/>} />
         </Route>
       </Routes>

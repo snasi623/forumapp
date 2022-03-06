@@ -1,30 +1,18 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
-import axios from 'axios';
-import baseUrl from './ApiPath';
+import { doHttpPost } from '../util.js'
 
 class Logout extends Component {
-    
-    constructor(props) {
-        super(props);
-        this.inputRef = React.createRef();
-        this.onSubmit = this.onSubmit.bind(this);
-    }
+    state = {}
 
-    onSubmit(e) {
-        const setSessionId = this.props.setSessionId
-        e.preventDefault();
-        const formData = new FormData(this.inputRef.current)
-        let entryData = {}
-        for (var [key, value] of formData.entries()) { 
-            entryData[key] = value
-        }
-        axios.post(`${baseUrl}/user/login`, entryData)
-            .then(res => {
-                const loginResponse = res.data;
-                console.log(JSON.stringify(loginResponse))
-                setSessionId(loginResponse.sessionId)
-                this.props.getMe(loginResponse.sessionId).then(me => console.log(me))
+    componentDidMount() {
+        doHttpPost(`/user/logout`, {}, this.props.getSessionId())
+            .then(r => {
+                this.props.clearSessionId();
+                window.location.replace('/')
+            }).catch(e => {
+                this.props.clearSessionId();
+                window.location.replace('/')
             })
     }
     

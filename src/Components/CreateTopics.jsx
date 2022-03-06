@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-import { useParams } from "react-router-dom";
-import baseUrl from './ApiPath';
+import { doHttpPost, extractFormData, withRouter } from '../util.js'
 
 class CreateTopics extends Component {
     constructor(props) {
@@ -13,20 +11,11 @@ class CreateTopics extends Component {
     onSubmit(e) {
         e.preventDefault();
         let { boardId } = this.props.match.params;
-        const formData = new FormData(this.inputRef.current)
-        let entryData = {}
-        for (var [key, value] of formData.entries()) { 
-            entryData[key] = value
-        }
+        let entryData = extractFormData(this.inputRef);
         entryData.boardId = boardId;
-        axios.post(`${baseUrl}/topic`, entryData, {
-            headers: {
-                'X-Forum-Session-Id': this.props.getToken()
-            }
-        }).then(res => {
-            const topic = res.data;
-            console.log(JSON.stringify(topic))
-        })
+
+        doHttpPost(`/topic`, entryData, this.props.getSessionId())
+            .then(() => window.location.replace(`/topics/${boardId}`))
     }
     
     render() {
@@ -52,13 +41,6 @@ class CreateTopics extends Component {
             </div>
         )
     }
-}
-
-export function withRouter(Children) {
-    return(props) => {
-       const match  = {params: useParams()};
-       return <Children {...props}  match = {match}/>
-   }
 }
 
 export default withRouter(CreateTopics);
