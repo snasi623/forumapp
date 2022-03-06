@@ -47,7 +47,6 @@ function doHttpDelete(path, sessionId = '') {
         return res.data
     }).catch(e => {
         console.error(e);
-        window.alert('Sorry, there was an error.')
     })
 }
 
@@ -61,7 +60,6 @@ function doHttpGet(path, sessionId = '') {
         return res.data
     }).catch(e => {
         console.error(e);
-        window.alert('Sorry, there was an error.')
     })
 }
 
@@ -75,7 +73,6 @@ function doHttpPut(path, entryData, sessionId = '') {
         return res.data
     }).catch(e => {
         console.error(e);
-        window.alert('Sorry, there was an error.')
     })
 }
 

@@ -14,7 +14,7 @@ function sessionProvider() {
     };
 
     const getMe = (sessionId) => {
-        return doHttpGet(`/user/me`, sessionId)
+        return doHttpGet('/user/me', sessionId)
     }
 
     return {

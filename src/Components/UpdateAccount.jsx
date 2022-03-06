@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-import baseUrl from './ApiPath';
 import { doHttpPut, extractFormData } from '../util';
 
-class UpdateAccount extends Component {
-    
+class UpdateAccount extends Component {  
     constructor(props) {
         super(props);
         this.inputRef = React.createRef();
@@ -15,28 +12,17 @@ class UpdateAccount extends Component {
         user: []
     }
 
-    getMe = this.props.getMe
-
     componentDidMount() {
-        axios.get(`${baseUrl}/user/me`)
-            .then(res => {
-                const user = res.data;
-                this.props.getMe(user.sessionId)
-                this.setState({ user });
-            })
+        this.props.getMe(this.props.getSessionId()).then(user => this.setState({ user }));
     }
 
     onSubmit(e) {
         e.preventDefault();
-        doHttpPut(`/user/me`, extractFormData(this.inputRef))
-            .then(() => {
-                console.log('test who fucking cares')
-            })
+        doHttpPut('/user/me', extractFormData(this.inputRef), this.props.getSessionId())
+            .then(() => window.location.replace('/'))
     }
-    
-    render() {
-        const user = [];
 
+    render() {
         return (
             <div>
                 <h1>Edit Your Account</h1>
@@ -46,13 +32,13 @@ class UpdateAccount extends Component {
                         <form ref={this.inputRef} onSubmit={this.onSubmit}>
                             <div className="row">
                                 <div className="col-sm-4"><label htmlFor="username">New Username: </label></div>
-                                <div className="col-sm-8"><input name="username" className="input-group" type="text" placeholder={user.username} id="username" required="required" /></div>
+                                <div className="col-sm-8"><input name="username" className="input-group" type="text" placeholder="New Username" id="username" required="required" /></div>
                             </div>
                             <div className="row">
                                 <div className="col-sm-4"><label htmlFor="password">New Password: </label></div>
                                 <div className="col-sm-8"><input name="password" className="input-group" type="password" placeholder="New Password" id="password" required="required" /></div>
                             </div>
-                            <button type="submit" className="btn btn-primary">Create Account</button>
+                            <button type="submit" className="btn btn-primary">Update Information</button>
                         </form>
                     </div>
                 </div>

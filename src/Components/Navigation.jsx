@@ -1,4 +1,4 @@
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, Link } from 'react-router-dom';
 import React, { Component } from 'react';
 
 class Navigation extends Component {

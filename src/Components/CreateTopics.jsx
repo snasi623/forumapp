@@ -14,7 +14,7 @@ class CreateTopics extends Component {
         let entryData = extractFormData(this.inputRef);
         entryData.boardId = boardId;
 
-        doHttpPost(`/topic`, entryData, this.props.getSessionId())
+        doHttpPost('/topic', entryData, this.props.getSessionId())
             .then(() => window.location.replace(`/topics/${boardId}`))
     }
     

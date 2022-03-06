@@ -45,7 +45,7 @@ class Posts extends Component {
         let entryData = extractFormData(this.inputRef);
         entryData.topicId = topicId;
 
-        doHttpPost(`/post`, entryData, this.props.getSessionId())
+        doHttpPost('/post', entryData, this.props.getSessionId())
             .then(() => window.location.reload());
     }
 

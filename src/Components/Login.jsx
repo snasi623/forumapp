@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import { doHttpPost, extractFormData } from '../util.js'
 
 class Login extends Component {
@@ -13,7 +13,7 @@ class Login extends Component {
     onSubmit(e) {
         e.preventDefault();
         
-        doHttpPost(`/user/login`, extractFormData(this.inputRef))
+        doHttpPost('/user/login', extractFormData(this.inputRef))
             .then(loginResponse => {
                 this.props.setSessionId(loginResponse.sessionId)
                 window.location.replace('/')

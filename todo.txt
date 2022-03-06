@@ -5,8 +5,6 @@ Update request for user
 Milestone 3
 
 User Stories
-Minor cosmetics: 
-    move create topic and board button
 
 Milestone 4
 

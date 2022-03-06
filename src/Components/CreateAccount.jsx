@@ -12,7 +12,7 @@ class CreateAccount extends Component {
     onSubmit(e) {
         e.preventDefault();
         
-        doHttpPost(`/user`, extractFormData(this.inputRef))
+        doHttpPost('/user', extractFormData(this.inputRef))
             .then(() => window.location.replace('/login'))
     }
     

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import { doHttpGet } from '../util.js'
 
 class Boards extends Component {    
@@ -8,7 +8,7 @@ class Boards extends Component {
     }
 
     componentDidMount() {
-        doHttpGet(`/board`)
+        doHttpGet('/board')
             .then(boards => this.setState({ boards }));
     }
 

@@ -12,7 +12,7 @@ class CreateBoards extends Component {
     onSubmit(e) {
         e.preventDefault();
         
-        doHttpPost(`/board`, extractFormData(this.inputRef), this.props.getSessionId())
+        doHttpPost('/board', extractFormData(this.inputRef), this.props.getSessionId())
             .then(board => {
                 console.log(JSON.stringify(board))
                 window.location.replace('/')

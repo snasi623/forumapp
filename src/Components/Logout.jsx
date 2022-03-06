@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import { doHttpPost } from '../util.js'
 
 class Logout extends Component {
     state = {}
 
     componentDidMount() {
-        doHttpPost(`/user/logout`, {}, this.props.getSessionId())
+        doHttpPost('/user/logout', {}, this.props.getSessionId())
             .then(r => {
                 this.props.clearSessionId();
                 window.location.replace('/')

@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navigation from './Components/Navigation';
 import Login from './Components/Login';
 import CreateAccount from './Components/CreateAccount';
@@ -28,7 +28,7 @@ function App() {
           <Route path="createboards" element={<CreateBoards getSessionId={getSessionId} />} />
           <Route path="createtopics/:boardId" element={<CreateTopics getSessionId={getSessionId} />} />
           <Route path="logout" element={<Logout getSessionId={getSessionId} clearSessionId={clearSessionId} />} />
-          <Route path="updateaccount" element={<UpdateAccount getMe={getMe}/>} />
+          <Route path="updateaccount" element={<UpdateAccount getSessionId={getSessionId} getMe={getMe}/>} />
         </Route>
       </Routes>
     </Router>
