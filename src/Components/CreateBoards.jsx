@@ -29,11 +29,11 @@ class CreateBoards extends Component {
                         <form ref={this.inputRef} onSubmit={this.onSubmit}>
                             <div className="row">
                                 <div className="col-sm-4"><label htmlFor="boardName">Board Name: </label></div>
-                                <div className="col-sm-8"><input name="boardName" className="input-group" type="text" placeholder="Board Name" required="required" /></div>
+                                <div className="col-sm-8"><input name="boardName" className="input-group" type="text" placeholder="Board Name" required="required" maxLength="150" /></div>
                             </div>
                             <div className="row">
                                 <div className="col-sm-4"><label htmlFor="description">Description: </label></div>
-                                <div className="col-sm-8"><textarea name="description" className="input-group" type="text" placeholder="Description" required="required"/></div>
+                                <div className="col-sm-8"><textarea name="description" className="input-group" type="text" placeholder="Description" required="required" maxLength="500"/></div>
                             </div>
                             <button type="submit" className="btn btn-primary">Create Board</button>
                         </form>

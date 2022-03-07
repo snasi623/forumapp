@@ -25,15 +25,15 @@ class CreateAccount extends Component {
                         <form ref={this.inputRef} onSubmit={this.onSubmit}>
                             <div className="row">
                                 <div className="col-sm-4"><label htmlFor="email">Email: </label></div>
-                                <div className="col-sm-8"><input name="email" className="input-group" type="email" placeholder="Email" id="email" required="required" /></div>
+                                <div className="col-sm-8"><input name="email" className="input-group" type="email" placeholder="Email" id="email" required="required" maxLength="100" /></div>
                             </div>
                             <div className="row">
                                 <div className="col-sm-4"><label htmlFor="username">Username: </label></div>
-                                <div className="col-sm-8"><input name="username" className="input-group" type="text" placeholder="Username" id="username" required="required" /></div>
+                                <div className="col-sm-8"><input name="username" className="input-group" type="text" placeholder="Username" id="username" required="required" maxLength="50" /></div>
                             </div>
                             <div className="row">
                                 <div className="col-sm-4"><label htmlFor="password">Password: </label></div>
-                                <div className="col-sm-8"><input name="password" className="input-group" type="password" placeholder="Password" id="password" required="required" /></div>
+                                <div className="col-sm-8"><input name="password" className="input-group" type="password" placeholder="Password" id="password" required="required" maxLength="40" /></div>
                             </div>
                             <div className="row">
                                 <div className="col-sm-4"><label htmlFor="gender">Gender: </label></div>

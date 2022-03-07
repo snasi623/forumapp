@@ -28,11 +28,11 @@ class CreateTopics extends Component {
                         <form ref={this.inputRef} onSubmit={this.onSubmit}>
                             <div className="row">
                                 <div className="col-sm-4"><label htmlFor="topicname">Topic Name: </label></div>
-                                <div className="col-sm-8"><input name="threadName" className="input-group" type="text" placeholder="Topic Name" id="topicname" required="required" /></div>
+                                <div className="col-sm-8"><input name="threadName" className="input-group" type="text" placeholder="Topic Name" id="topicname" required="required" maxLength="200" /></div>
                             </div>
                             <div className="row">
                                 <div className="col-sm-4"><label htmlFor="text">Text: </label></div>
-                                <div className="col-sm-8"><textarea name="firstPost" className="input-group" type="text" placeholder="Text" id="text" required="required" /></div>
+                                <div className="col-sm-8"><textarea name="firstPost" className="input-group" type="text" placeholder="Text" id="text" required="required" maxLength="1000" /></div>
                             </div>
                             <button type="submit" className="btn btn-primary">Create Thread</button>
                         </form>
