@@ -1,5 +1,5 @@
 # Name
-Forum App
+Baxter Boards
 
 # Functionality
 Users may create boards, threads, and posts for other users to see. Users, boards, threads, and posts are saved in a SQL database. When a form is submitted to the corresponding database, the React App sends the data through REST to a SQL lite database, where it is stored. 

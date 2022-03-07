@@ -29,8 +29,7 @@ class Topics extends Component {
         return (
             <div>
                 <h1>{this.state.board.boardName}</h1>
-                <p>{this.state.board.description}</p>
-                <p>Have a topic that you want to post about? <Link to={`/createtopics/${this.state.board.id}`}>Create a thread here!</Link></p>
+                <p>{this.state.board.description} Have a topic that you want to post about? <Link to={`/createtopics/${this.state.board.id}`}>Create a thread here!</Link></p>
                 <div className="card bg-light mb-3">
                     <div className="card-header">Topics</div>
                     {topics}

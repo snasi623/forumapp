@@ -25,8 +25,8 @@ class Boards extends Component {
 
         return (
             <div>
-                <h1>Boards</h1>
-                <p>Not finding what you are looking for? <Link to="/createboards">Create a Board here!</Link></p>
+                <h1>Baxter Boards</h1>
+                <p>Your one stop shop for all of your petcare needs. Baxter Boards houses solutions for your pet across all their needs and is operated by users like you. If you are not finding what you are looking for, <Link to="/createboards">Create a Board here!</Link></p>
                 {boards}
             </div>
         )

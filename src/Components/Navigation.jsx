@@ -23,7 +23,7 @@ class Navigation extends Component {
             return (
                 <ul className="navbar-nav">
                     <li className="nav-header">
-                        Forum App
+                        Baxter Boards
                     </li>
                     <li className="nav-item">
                         <Link to="/">Home</Link>
@@ -40,7 +40,7 @@ class Navigation extends Component {
         return (
             <ul className="navbar-nav">
                 <li className="nav-header">
-                    Forum App
+                    Baxter Boards
                 </li>
                 <li className="nav-item">
                     <Link to="/">Home</Link>

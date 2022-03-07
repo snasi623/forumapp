@@ -1,3 +1,3 @@
-As an administrator of a fan club, I want to create a space online where members of my community can post questions so that I can engage with them in an online discussion.
-As a student, I want an online space to pose questions to my classmates whose phone numbers I may not have so that I can get help on my homework from others.
-As an entrepeneaur, I want my customers to engage in an online discussion with each other regarding our product or service so that I can better understand our customer experience.
+As an pet store owner, I want to create a space online where members of my community can post any questions they may have about owning a pet so that I can engage with them in an online discussion.
+As a new pet owner, I want an online space to pose questions to my fellow pet owners regarding cost saving techniques, vet issues, and boarding options so that I can get different and diverse perspectives that will assist me in making the best decisions for my pet.
+As a prospective adopter, I want to discreetly air out some of my concerns regarding caring for a dog so that I can get support from those who have faced similar fears. 
