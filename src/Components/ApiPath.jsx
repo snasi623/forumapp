@@ -1,2 +1,2 @@
-const baseUrl = "http://localhost:3001";
+const baseUrl = "https://ewz2wr.sse.codesandbox.io";
 export default baseUrl;
