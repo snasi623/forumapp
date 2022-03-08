@@ -20,9 +20,9 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Navigation getSessionId={getSessionId} getMe={getMe} />}>
-          <Route index element={<Boards />} />
+          <Route index element={<Boards getSessionId={getSessionId} />} />
           <Route path="login" element={<Login setSessionId={setSessionId} getMe={getMe} />} />
-          <Route path="topics/:boardId" element={<Topics />} />
+          <Route path="topics/:boardId" element={<Topics getSessionId={getSessionId} />} />
           <Route path="posts/:topicId" element={<Posts getSessionId={getSessionId} getMe={getMe} />} />
           <Route path="createaccount" element={<CreateAccount />} />
           <Route path="createboards" element={<CreateBoards getSessionId={getSessionId} />} />

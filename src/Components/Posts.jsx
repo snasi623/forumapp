@@ -8,6 +8,7 @@ class Posts extends Component {
         this.onSubmit = this.onSubmit.bind(this);
         this.deletePost = this.deletePost.bind(this);
         this.renderDelete = this.renderDelete.bind(this);
+        this.displayInputField = this.displayInputField(this);
     }
 
     state = {
@@ -56,6 +57,21 @@ class Posts extends Component {
             )
         }
     }
+
+    displayInputField() {
+        if (this.props.getSessionId() != null) {
+            return (
+                <form ref={this.inputRef} onSubmit={this.onSubmit}>
+                    <div><textarea name="text" className="input-group" type="text" placeholder="Text" id="text" /></div>
+                    <button type="submit" className="btn btn-primary">Reply</button>
+                </form>
+            )
+        } else {
+            return (
+                <p>Please log into your account in order to contribute to the discussion.</p>
+            )
+        }
+    }
     
     render() {
         const posts = [];
@@ -84,10 +100,7 @@ class Posts extends Component {
                 <div className="card bg-light mb-3 account">
                     <div className="card-header">Reply</div>
                     <div className="card-body">
-                        <form ref={this.inputRef} onSubmit={this.onSubmit}>
-                            <div><textarea name="text" className="input-group" type="text" placeholder="Text" id="text" /></div>
-                            <button type="submit" className="btn btn-primary">Reply</button>
-                        </form>
+                        {this.displayInputField}
                     </div>
                 </div>
             </div>

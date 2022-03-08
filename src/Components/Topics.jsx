@@ -3,6 +3,11 @@ import { Link } from 'react-router-dom';
 import { doHttpGet, withRouter } from '../util.js'
 
 class Topics extends Component {
+    constructor(props) {
+        super(props);
+        this.displayCreateTopicLink = this.displayCreateTopicLink(this);
+    }
+    
     state = {
         board: {},
         topics: []
@@ -17,6 +22,16 @@ class Topics extends Component {
         doHttpGet(`/topic/byBoardId/${boardId}`)
             .then(topics => this.setState({ topics }))
     }
+
+    displayCreateTopicLink() {
+        if (this.props.getSessionId() != null) {
+            return (
+                <p>Have a topic that you want to post about? <Link to={`/createtopics/${this.state.board.id}`}>Create a thread here!</Link></p>
+            )
+        } else {
+            return ''
+        }
+    }
     
     render() {
         const topics = [];
@@ -29,7 +44,8 @@ class Topics extends Component {
         return (
             <div>
                 <h1>{this.state.board.boardName}</h1>
-                <p>{this.state.board.description} Have a topic that you want to post about? <Link to={`/createtopics/${this.state.board.id}`}>Create a thread here!</Link></p>
+                <p>{this.state.board.description}</p>
+                {this.displayCreateTopicLink}
                 <div className="card bg-light mb-3">
                     <div className="card-header">Topics</div>
                     {topics}
