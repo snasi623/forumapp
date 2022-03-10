@@ -1,2 +1,2 @@
-const baseUrl = "https://ewz2wr.sse.codesandbox.io";
+const baseUrl = "https://lo6iwl.sse.codesandbox.io";
 export default baseUrl;
