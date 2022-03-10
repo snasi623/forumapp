@@ -17,7 +17,7 @@ function App() {
   const { getSessionId, setSessionId, clearSessionId, getMe } = sessionProvider();
 
   return (
-    <Router basename="/forumapp">
+    <Router>
       <Routes>
         <Route path="/" element={<Navigation getSessionId={getSessionId} getMe={getMe} />}>
           <Route index element={<Boards getSessionId={getSessionId} />} />
