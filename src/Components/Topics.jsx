@@ -5,32 +5,24 @@ import { doHttpGet, withRouter } from '../util.js'
 class Topics extends Component {
     constructor(props) {
         super(props);
-        this.displayCreateTopicLink = this.displayCreateTopicLink(this);
     }
     
     state = {
         board: {},
+        boardId: null,
         topics: []
     }
 
     componentDidMount() {
         let { boardId } = this.props.match.params;
+        this.setState({ boardId });
+        console.log(boardId);
 
         doHttpGet(`/board/${boardId}`)
             .then(board => this.setState({ board }));
         
         doHttpGet(`/topic/byBoardId/${boardId}`)
             .then(topics => this.setState({ topics }))
-    }
-
-    displayCreateTopicLink() {
-        if (this.props.getSessionId() != null) {
-            return (
-                <p>Have a topic that you want to post about? <Link to={`/createtopics/${this.state.board.id}`}>Create a thread here!</Link></p>
-            )
-        } else {
-            return ''
-        }
     }
     
     render() {
@@ -45,7 +37,7 @@ class Topics extends Component {
             <div>
                 <h1>{this.state.board.boardName}</h1>
                 <p>{this.state.board.description}</p>
-                {this.displayCreateTopicLink}
+                <p>Have a topic that you want to post about? <Link to={`/createtopics/${this.state.boardId}`}>Create a thread here!</Link></p>
                 <div className="card bg-light mb-3">
                     <div className="card-header">Topics</div>
                     {topics}

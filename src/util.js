@@ -33,7 +33,7 @@ function doHttpPost(path, entryData, sessionId = '') {
         return res.data
     }).catch(e => {
         console.error(e);
-        window.alert('Sorry, there was an error.')
+        window.alert('Sorry, there was an error. Please log in or register if you are not signed in.')
     })
 }
 
