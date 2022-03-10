@@ -2,7 +2,7 @@
   "name": "forum",
   "version": "0.1.0",
   "private": false,
-  "homepage": "http://snasi623.github.io/forumapp",
+  "homepage": "https://snasi623.github.io/forumapp",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.2",
